@@ -31,3 +31,9 @@ function makeColumns(cellNum) {
         }
     }
 }
+
+
+
+// Declare the default grid at the end of the code
+
+defaultGrid();
