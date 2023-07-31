@@ -11,4 +11,13 @@ body {
     border: 5px solid black;
     margin: 10% 25%;
     padding: 5%;
+    display: grid;
+    grid-template-columns: repeat(16, 20px);
+    justify-content: center;
+}
+
+.cell {
+    border: 1px solid grey;
+    min-width: 20px;
+    min-height: 20px;
 }
