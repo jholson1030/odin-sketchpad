@@ -50,3 +50,12 @@ let cellList = document.querySelectorAll('.cell');
 cellList.forEach(function (cells) {
     cells.addEventListener('mouseover', changeBlack);
 });
+
+// Clears the canvas to start over again
+
+let clearCanvas = document.querySelector('.clear-btn');
+clearCanvas.addEventListener('click', function() {
+    cellList.forEach(Element => {
+        Element.style.backgroundColor = '#f4f4f4';
+    });
+});
