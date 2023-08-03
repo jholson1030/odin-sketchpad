@@ -53,9 +53,16 @@ cellList.forEach(function (cells) {
 
 // Clears the canvas to start over again
 
+// Sets a variable called clearCanvas and links it to the HTML button with a query selector
 let clearCanvas = document.querySelector('.clear-btn');
+// Adds an event listener that goes on click and runs a function that targets the whole cellList to set the background color to white
 clearCanvas.addEventListener('click', function() {
     cellList.forEach(Element => {
         Element.style.backgroundColor = '#f4f4f4';
     });
 });
+
+// Creates an eraser to clear individual cells on hover
+
+// Sets a variable called eraser that links to the HTML button eraser
+let eraser = document.querySelector('.eraser-btn');
