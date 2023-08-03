@@ -21,3 +21,8 @@ body {
     min-width: 20px;
     min-height: 20px;
 }
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
