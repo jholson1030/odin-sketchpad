@@ -37,3 +37,16 @@ function makeColumns(cellNum) {
 // Declare the default grid at the end of the code
 
 defaultGrid();
+
+// The event to change each individual cell black
+
+function changeBlack(event) {
+    event.target.style.backgroundColor = '#000000';
+}
+
+// Takes changeBlack and puts it in an event listener
+
+let cellList = document.querySelectorAll('.cell');
+cellList.forEach(function (cells) {
+    cells.addEventListener('mouseover', changeBlack);
+});
