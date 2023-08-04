@@ -47,7 +47,6 @@ function handleCellHover (event) { // The 'event' parameter  represents  the hov
 }
 
 // Clears the canvas to start over again
-
 // Sets a variable called clearCanvas and links it to the HTML button with a query selector
 let clearCanvas = document.querySelector('.clear-btn');
 // Adds an event listener that goes on click and runs a function that targets the whole cellList to set the background color to white
@@ -57,6 +56,10 @@ clearCanvas.addEventListener('click', function() {
     });
 });
 
+// Function to change the activeMode variable without directly changing it
+function setActiveMode(mode) { // The parameter 'mode' represents what mode to set
+    activeMode = mode; // Updates the variable activeMode to the value of the mode parameter
+}
 
 
 // Declare the default grid at the end of the code
