@@ -44,7 +44,13 @@ function changeBlack(event) {
     event.target.style.backgroundColor = '#000000';
 }
 
-// Takes changeBlack and puts it in an event listener
+// The event to change each individual cell back to white (the eraser)
+
+function changeWhite(event) {
+    event.target.style.backgroundColor = '#ffffff';
+}
+
+// Takes changeBlack/changeWhite and puts it in an event listener
 
 let cellList = document.querySelectorAll('.cell');
 cellList.forEach(function (cells) {
@@ -61,8 +67,3 @@ clearCanvas.addEventListener('click', function() {
         Element.style.backgroundColor = '#f4f4f4';
     });
 });
-
-// Creates an eraser to clear individual cells on hover
-
-// Sets a variable called eraser that links to the HTML button eraser
-let eraser = document.querySelector('.eraser-btn');
