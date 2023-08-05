@@ -4,9 +4,6 @@ const container = document.getElementById('container');
 let rows = document.getElementsByClassName('gridRow');
 let cells = document.querySelectorAll('cell');
 
-// This is the active mode. It represents the current mode that is selected. It's default is black on startup until another button is selected.
-let activeMode = 'black';
-
 // Makes the 16 x 16 grid
 
 function defaultGrid() {
@@ -35,18 +32,33 @@ function makeColumns(cellNum) {
     }
 }
 
-// This function handles what color the cell will be based on the active mode
-function handleCellHover (event) { // The 'event' parameter  represents  the hover event that happens when the mouse moves over a cell
-    const cell = event.target; // This targets the cell that is being triggered by the event
 
-    if (activeMode === 'black') {
-        cell.style.backgroundColor = '#000000';
-    } else if (activeMode === 'eraser') {
-        cell.style.backgroundColor = '#f4f4f4';
-    }
+
+// Declare the default grid at the end of the code
+
+defaultGrid();
+
+// The event to change each individual cell black
+
+function changeBlack(event) {
+    event.target.style.backgroundColor = '#000000';
 }
 
+// The event to change each individual cell back to white (the eraser)
+
+function changeWhite(event) {
+    event.target.style.backgroundColor = '#ffffff';
+}
+
+// Takes changeBlack/changeWhite and puts it in an event listener
+
+let cellList = document.querySelectorAll('.cell');
+cellList.forEach(function (cells) {
+    cells.addEventListener('mouseover', changeBlack);
+});
+
 // Clears the canvas to start over again
+
 // Sets a variable called clearCanvas and links it to the HTML button with a query selector
 let clearCanvas = document.querySelector('.clear-btn');
 // Adds an event listener that goes on click and runs a function that targets the whole cellList to set the background color to white
@@ -55,13 +67,3 @@ clearCanvas.addEventListener('click', function() {
         Element.style.backgroundColor = '#f4f4f4';
     });
 });
-
-// Function to change the activeMode variable without directly changing it
-function setActiveMode(mode) { // The parameter 'mode' represents what mode to set
-    activeMode = mode; // Updates the variable activeMode to the value of the mode parameter
-}
-
-
-// Declare the default grid at the end of the code
-
-defaultGrid();
