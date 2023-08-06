@@ -42,7 +42,6 @@ defaultGrid();
 
 
 
-
 // The event to change each individual cell black
 let blackButton = document.querySelector('.black-btn');
 function changeBlack(event) {
@@ -57,9 +56,57 @@ function changeWhite(event) {
 
 let cellList = document.querySelectorAll('.cell');
 
-// These variables allow the user to toggle on the black button and eraser button but only
-// once. I need to figure out what is keeping this code from being reusable.
+// Variables to check if the events in the buttons are being ran or not
+let isBlackActive = false;
+let isEraserActive = false;
 
+
+
+function toggleBlack() {
+    if (!isBlackActive) {
+        cellList.forEach(function (cells) {
+            cells.addEventListener('mouseover', changeBlack);
+        });
+    } else {
+        cellList.forEach(function (cells) {
+            cells.removeEventListener('mouseover', changeBlack);
+        });
+    } isBlackActive = !isBlackActive;
+}
+
+function toggleEraser() {
+    if (!isEraserActive) {
+        cellList.forEach(function (cells) {
+            cells.addEventListener('mouseover', changeWhite);
+        });
+    } else {
+        cellList.forEach(function (cells) {
+            cells.removeEventListener('mouseover', changeWhite);
+        });
+    } isEraserActive = !isEraserActive;
+}
+
+
+blackButton.addEventListener('click', function () {
+    toggleBlack();
+    // When the black button is clicked, disable the eraser button
+    if (isBlackActive) {
+        toggleEraser();
+    }
+});
+
+eraserButton.addEventListener('click', function () {
+    toggleEraser();
+    // When the eraser button is clicked, disable the black button
+    if (isEraserActive) {
+        toggleBlack();
+    }
+});
+
+
+// Shouldn't have an event listener inside of an event listener...
+
+/* 
 let black = blackButton.addEventListener('click', function() {
     cellList.forEach(function (cells) {
         cells.addEventListener('mouseover', changeBlack);
@@ -70,7 +117,7 @@ let erase = eraserButton.addEventListener('click', function() {
     cellList.forEach(function (cells) {
         cells.addEventListener('mouseover', changeWhite);
     });
-})
+}) */
 
 
 
