@@ -54,6 +54,7 @@ function changeWhite(event) {
     event.target.style.backgroundColor = '#ffffff';
 }
 
+// Selects all the cells on the canvas 
 let cellList = document.querySelectorAll('.cell');
 
 // Variables to check if the events in the buttons are being ran or not
@@ -90,7 +91,7 @@ function toggleEraser() {
 blackButton.addEventListener('click', function () {
     toggleBlack();
     // When the black button is clicked, disable the eraser button
-    if (isBlackActive) {
+    if (isBlackActive && isEraserActive) {
         toggleEraser();
     }
 });
@@ -98,7 +99,7 @@ blackButton.addEventListener('click', function () {
 eraserButton.addEventListener('click', function () {
     toggleEraser();
     // When the eraser button is clicked, disable the black button
-    if (isEraserActive) {
+    if (isBlackActive && isEraserActive) {
         toggleBlack();
     }
 });
