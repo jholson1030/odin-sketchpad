@@ -53,12 +53,17 @@ function changeWhite(event) {
     event.target.style.backgroundColor = '#ffffff';
 }
 
+// The event to target the color picker
+let customColor = document.querySelector('.color-picker').value;
+
+
 // Selects all the cells on the canvas 
 let cellList = document.querySelectorAll('.cell');
 
 // Variables to check if the events in the buttons are being ran or not
 let isBlackActive = false;
 let isEraserActive = false;
+let isCustomActive = false;
 
 
 
