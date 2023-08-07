@@ -4,7 +4,6 @@ const container = document.getElementById('container');
 let rows = document.getElementsByClassName('gridRow');
 let cells = document.querySelectorAll('cell');
 
-let defaultMode = changeBlack;
 
 // Makes the 16 x 16 grid
 
