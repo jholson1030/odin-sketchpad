@@ -60,6 +60,7 @@ function changeCustomColor(event) {
 }
 
 
+
 // Selects all the cells on the canvas 
 let cellList = document.querySelectorAll('.cell');
 
@@ -69,6 +70,7 @@ let isEraserActive = false;
 let isCustomActive = false;
 
 // Toggles for the different colors and eraser
+
 
 function toggleBlack() {
     if (!isBlackActive) {
@@ -80,6 +82,7 @@ function toggleBlack() {
             cells.removeEventListener('mouseover', changeBlack);
         });
     } isBlackActive = !isBlackActive;
+    console.log(isBlackActive);
 }
 
 function toggleEraser() {
@@ -92,6 +95,7 @@ function toggleEraser() {
             cells.removeEventListener('mouseover', changeWhite);
         });
     } isEraserActive = !isEraserActive;
+    // console.log(isEraserActive);
 }
 
 function toggleCustomColor() {
@@ -104,12 +108,14 @@ function toggleCustomColor() {
             cells.removeEventListener('mouseover', changeCustomColor);
         });
     } isCustomActive = !isCustomActive;
-}
+    // console.log(isCustomActive);
+} 
+
 
 blackButton.addEventListener('click', function () {
     toggleBlack();
     // When the black button is clicked, disable the eraser button
-    if (isBlackActive && isEraserActive) {
+    if (isBlackActive) {
         toggleEraser();
         toggleCustomColor();
     }
@@ -118,7 +124,7 @@ blackButton.addEventListener('click', function () {
 eraserButton.addEventListener('click', function () {
     toggleEraser();
     // When the eraser button is clicked, disable the black button
-    if (isBlackActive && isEraserActive) {
+    if (isEraserActive) {
         toggleBlack();
         toggleCustomColor();
     }
