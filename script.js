@@ -54,11 +54,7 @@ function changeWhite(event) {
 }
 
 // The event to target the color picker
-let customColor = document.querySelector('.color-picker');
-function changeCustomColor(event) {
-    event.target.style.backgroundColor = customColor.value;
-}
-
+let customColor = document.querySelector('.color-picker').value;
 
 
 // Selects all the cells on the canvas 
@@ -69,7 +65,6 @@ let isBlackActive = false;
 let isEraserActive = false;
 let isCustomActive = false;
 
-// Toggles for the different colors and eraser
 
 
 function toggleBlack() {
@@ -82,7 +77,6 @@ function toggleBlack() {
             cells.removeEventListener('mouseover', changeBlack);
         });
     } isBlackActive = !isBlackActive;
-    console.log(isBlackActive);
 }
 
 function toggleEraser() {
@@ -95,47 +89,22 @@ function toggleEraser() {
             cells.removeEventListener('mouseover', changeWhite);
         });
     } isEraserActive = !isEraserActive;
-    // console.log(isEraserActive);
 }
-
-function toggleCustomColor() {
-    if (!isCustomActive) {
-        cellList.forEach(function (cells) {
-            cells.addEventListener('mouseover', changeCustomColor);
-        });
-    } else {
-        cellList.forEach(function (cells) {
-            cells.removeEventListener('mouseover', changeCustomColor);
-        });
-    } isCustomActive = !isCustomActive;
-    // console.log(isCustomActive);
-} 
 
 
 blackButton.addEventListener('click', function () {
     toggleBlack();
     // When the black button is clicked, disable the eraser button
-    if (isBlackActive) {
+    if (isBlackActive && isEraserActive) {
         toggleEraser();
-        toggleCustomColor();
     }
 });
 
 eraserButton.addEventListener('click', function () {
     toggleEraser();
     // When the eraser button is clicked, disable the black button
-    if (isEraserActive) {
+    if (isBlackActive && isEraserActive) {
         toggleBlack();
-        toggleCustomColor();
-    }
-});
-
-customColor.addEventListener('input', function (event) {
-    toggleCustomColor();
-    // When a color is chosen it will disable the other buttons
-    if (isCustomActive) {
-        toggleBlack();
-        toggleEraser();
     }
 });
 
