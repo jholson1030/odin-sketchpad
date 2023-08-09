@@ -53,6 +53,7 @@ let customColor = document.querySelector('.color-picker');
 // Selects all the cells on the canvas 
 let cellList = document.querySelectorAll('.cell');
 
+// This represents the specific brush that is active
 let activeBrush = null;
 
 function changeBlack(event) {
@@ -67,6 +68,7 @@ function changeCustomColor(event) {
     event.target.style.backgroundColor = customColor.value;
 }
 
+// Function that applys the correct brush color to activeBrush
 function applyBrush (cell) {
     if (activeBrush === 'black') {
         cell.addEventListener('mouseover', changeBlack);
@@ -77,12 +79,15 @@ function applyBrush (cell) {
     }
 }
 
+// Function that removes all brush event listeners
 function removeBrush (cell) {
     cell.removeEventListener('mouseover', changeBlack);
     cell.removeEventListener('mouseover', changeWhite);
     cell.removeEventListener('mouseover', changeCustomColor);
 }
 
+// Event listeners that apply the selected brush to activeBrush when you click the buttons 
+// and also removes the other previously selected brush
 blackButton.addEventListener('click', function() {
     activeBrush = 'black';
     cellList.forEach(removeBrush);
