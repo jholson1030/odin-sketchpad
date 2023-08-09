@@ -43,86 +43,137 @@ defaultGrid();
 
 // The event to change each individual cell black
 let blackButton = document.querySelector('.black-btn');
-function changeBlack(event) {
-    event.target.style.backgroundColor = '#000000';
-}
 
 // The event to change each individual cell back to white (the eraser)
 let eraserButton = document.querySelector('.eraser-btn');
-function changeWhite(event) {
-    event.target.style.backgroundColor = '#ffffff';
-}
 
 // The event to target the color picker
-let customColor = document.querySelector('.color-picker').value;
-
+let customColor = document.querySelector('.color-picker');
 
 // Selects all the cells on the canvas 
 let cellList = document.querySelectorAll('.cell');
 
+let activeBrush = null;
+
+function changeBlack(event) {
+    event.target.style.backgroundColor = '#000000';
+}
+
+function changeWhite(event) {
+    event.target.style.backgroundColor = '#ffffff';
+}
+
+function changeCustomColor(event) {
+    event.target.style.backgroundColor = customColor.value;
+}
+
+function applyBrush (cell) {
+    if (activeBrush === 'black') {
+        cell.addEventListener('mouseover', changeBlack);
+    } else if (activeBrush === 'eraser') {
+        cell.addEventListener('mouseover', changeWhite);
+    } else if (activeBrush === 'custom') {
+        cell.addEventListener('mouseover', changeCustomColor);
+    }
+}
+
+function removeBrush (cell) {
+    cell.removeEventListener('mouseover', changeBlack);
+    cell.removeEventListener('mouseover', changeWhite);
+    cell.removeEventListener('mouseover', changeCustomColor);
+}
+
+blackButton.addEventListener('click', function() {
+    activeBrush = 'black';
+    cellList.forEach(removeBrush);
+    cellList.forEach(applyBrush);
+});
+
+eraserButton.addEventListener('click', function() {
+    activeBrush = 'eraser';
+    cellList.forEach(removeBrush);
+    cellList.forEach(applyBrush);
+});
+
+customColor.addEventListener('click', function() {
+    activeBrush = 'custom';
+    cellList.forEach(removeBrush);
+    cellList.forEach(applyBrush);
+});
+
+// REMOVE THIS LATER //
+/*
 // Variables to check if the events in the buttons are being ran or not
-let isBlackActive = false;
-let isEraserActive = false;
-let isCustomActive = false;
+let isBlackActive = false; // OFF
+let isEraserActive = false; // OFF
+let isCustomActive = false; // OFF
 
 
-
-function toggleBlack() {
-    if (!isBlackActive) {
+function blackBrush() {
+    if (isBlackActive === true) {
         cellList.forEach(function (cells) {
             cells.addEventListener('mouseover', changeBlack);
+            // isEraserActive = false;
+            // isCustomActive = false;
         });
-    } else {
-        cellList.forEach(function (cells) {
+    } else cellList.forEach(function (cells) {
             cells.removeEventListener('mouseover', changeBlack);
         });
-    } isBlackActive = !isBlackActive;
-}
+    
+    }
 
-function toggleEraser() {
-    if (!isEraserActive) {
+function whiteBrush() {
+    if (isEraserActive === true) {
         cellList.forEach(function (cells) {
             cells.addEventListener('mouseover', changeWhite);
+            // isBlackActive = false;
+            // isCustomActive = false;
         });
-    } else {
-        cellList.forEach(function (cells) {
+    } else cellList.forEach(function (cells) {
             cells.removeEventListener('mouseover', changeWhite);
         });
-    } isEraserActive = !isEraserActive;
-}
-
-
-blackButton.addEventListener('click', function () {
-    toggleBlack();
-    // When the black button is clicked, disable the eraser button
-    if (isBlackActive && isEraserActive) {
-        toggleEraser();
     }
-});
 
-eraserButton.addEventListener('click', function () {
-    toggleEraser();
-    // When the eraser button is clicked, disable the black button
-    if (isBlackActive && isEraserActive) {
-        toggleBlack();
+function customBrush() {
+    if (isCustomActive === true) {
+        cellList.forEach(function (cells) {
+            cells.addEventListener('mouseover', changeCustomColor);
+            // isBlackActive = false;
+            // isEraserActive = false;
+        });
+    } else cellList.forEach(function (cells) {
+            cells.removeEventListener('mouseover', changeCustomColor);
+        });
     }
-});
 
-
-// Shouldn't have an event listener inside of an event listener...
-
-/* 
-let black = blackButton.addEventListener('click', function() {
-    cellList.forEach(function (cells) {
-        cells.addEventListener('mouseover', changeBlack);
+    blackButton,addEventListener('click', function () {
+        if (!isBlackActive) {
+            isBlackActive = true;
+            blackBrush();
+            isEraserActive = false;
+            isCustomActive = false;
+        }
     });
-})
-
-let erase = eraserButton.addEventListener('click', function() {
-    cellList.forEach(function (cells) {
-        cells.addEventListener('mouseover', changeWhite);
+    
+    eraserButton.addEventListener('click', function () {
+        if (!isEraserActive) {
+            isEraserActive = true;
+            whiteBrush();
+            isBlackActive = false;
+            isCustomActive = false;
+        }
     });
-}) */
+    
+    customColor.addEventListener('input', function () {
+        if (!isCustomActive) {
+            isCustomActive = true;
+            customBrush();
+            isBlackActive = false;
+            isEraserActive = false;
+        }
+    });
+   */ 
+
 
 
 
