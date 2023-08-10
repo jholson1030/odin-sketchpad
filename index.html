@@ -16,9 +16,12 @@
             <!--Color picker goes here-->
             <label id="options" for="choose-color">Color: </label>
             <input id="options" type="color" class="color-picker" value="#ff0000">
-            <button id="options" class="clear-btn">Start Over</button>
-            
-        </div>    
+            <button id="options" class="clear-btn">Start Over</button>  
+        </div>  
+        <div class="slider-container">
+            <label for="choose-canvas-size">Choose Canvas Size: </label>
+            <input type="range" min="1" max="4" value="2" class="slider" id="slider-options">
+        </div>  
         <div id="container"></div>
         <script src="script.js"></script>
     </body>
