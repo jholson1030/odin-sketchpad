@@ -34,11 +34,20 @@ function makeColumns(cellNum) {
 }
 
 
-
 // Declare the default grid at the end of the code
 
 defaultGrid();
 
+
+// Script for the slider that controls the grid size goes here
+let slider = document.getElementById('slider-options');
+
+// Updates the current value of the canvas size
+slider.oninput = function() {
+
+    // Add code to this function
+    output.innerHTML = this.value;
+}
 
 
 // The event to change each individual cell black
