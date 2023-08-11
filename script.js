@@ -115,25 +115,6 @@ cellList.forEach(function(cell) {
     });
 });
 
-/*
-// Function that applys the correct brush color to activeBrush
-function applyBrush (cell) {
-    if (activeBrush === 'black') {
-        cell.addEventListener('mouseover', changeBlack);
-    } else if (activeBrush === 'eraser') {
-        cell.addEventListener('mouseover', changeWhite);
-    } else if (activeBrush === 'custom') {
-        cell.addEventListener('mouseover', changeCustomColor);
-    }
-}
-
-// Function that removes all brush event listeners
-function removeBrush (cell) {
-    cell.removeEventListener('mouseover', changeBlack);
-    cell.removeEventListener('mouseover', changeWhite);
-    cell.removeEventListener('mouseover', changeCustomColor);
-}
-*/
 
 // Event listeners that apply the selected brush to activeBrush when you click the buttons 
 // and also removes the other previously selected brush
