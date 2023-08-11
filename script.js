@@ -86,7 +86,23 @@ cell.addEventListener('mouseup', function(cell) {
     mouseIsDown = false;
 });
 
+// Function that applys the correct brush color to activeBrush
+function applyBrush (cell) {
+    if (activeBrush === 'black' && mouseIsDown === true) {
+        cell.addEventListener('mouseover', changeBlack);
+    } else if (activeBrush === 'eraser' === mouseIsDown === true) {
+        cell.addEventListener('mouseover', changeWhite);
+    } else if (activeBrush === 'custom' && mouseIsDown === true) {
+        cell.addEventListener('mouseover', changeCustomColor);
+    }
+}
 
+// Function that removes all brush event listeners
+function removeBrush (cell) {
+    cell.removeEventListener('mouseover', changeBlack);
+    cell.removeEventListener('mouseover', changeWhite);
+    cell.removeEventListener('mouseover', changeCustomColor);
+}
 
 /*
 // Function that applys the correct brush color to activeBrush
