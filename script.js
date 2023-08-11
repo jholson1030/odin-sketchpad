@@ -79,11 +79,14 @@ function changeCustomColor(event) {
 
 // Variable to keep track if the mouse button is being held down or not
 let mouseIsDown = false;
-cell.addEventListener('mousedown', function(cell){
-    mouseIsDown = true;
-});
-cell.addEventListener('mouseup', function(cell) {
-    mouseIsDown = false;
+
+cellList.forEach(function(cell) {
+    cell.addEventListener('mousedown', function() {
+        mouseIsDown = true;
+    });
+    cell.addEventListener('mouseup', function() {
+        mouseIsDown = false;
+    });
 });
 
 // Function that applys the correct brush color to activeBrush
@@ -99,9 +102,11 @@ function applyBrush (cell) {
 
 // Function that removes all brush event listeners
 function removeBrush (cell) {
-    cell.removeEventListener('mouseover', changeBlack);
-    cell.removeEventListener('mouseover', changeWhite);
-    cell.removeEventListener('mouseover', changeCustomColor);
+    if (mouseIsDown = false) {
+        cell.removeEventListener('mouseover', changeBlack);
+        cell.removeEventListener('mouseover', changeWhite);
+        cell.removeEventListener('mouseover', changeCustomColor);
+    }
 }
 
 /*
