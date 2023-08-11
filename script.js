@@ -79,13 +79,13 @@ function changeCustomColor(event) {
 
 
 // Function that applys the correct brush color to activeBrush
-function applyBrush (cell) {
+function applyBrush (cell, event) {
     console.log('applying brush: ', activeBrush, 'mouse is down: ',mouseIsDown);
-    if (activeBrush === 'black' && mouseIsDown === true) {
+    if (activeBrush === 'black' && event.buttons === 1) {
         cell.addEventListener('mouseover', changeBlack);
-    } else if (activeBrush === 'eraser' && mouseIsDown === true) {
+    } else if (activeBrush === 'eraser' && event.buttons === 1) {
         cell.addEventListener('mouseover', changeWhite);
-    } else if (activeBrush === 'custom' && mouseIsDown === true) {
+    } else if (activeBrush === 'custom' && event.buttons === 1) {
         cell.addEventListener('mouseover', changeCustomColor);
     }
 }
@@ -100,8 +100,11 @@ function removeBrush (cell) {
 }
 
 cellList.forEach(function(cell) {
-    cell.addEventListener('mousedown', function() {
+    cell.addEventListener('mousedown', function(event) {
         applyBrush(cell);
+    });
+    cell.addEventListener('mouseup', function(event) {
+        removeBrush(cell);
     });
     cell.addEventListener('mouseup', function() {
         removeBrush(cell);
