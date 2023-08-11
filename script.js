@@ -80,35 +80,40 @@ function changeCustomColor(event) {
 // Variable to keep track if the mouse button is being held down or not
 let mouseIsDown = false;
 
-cellList.forEach(function(cell) {
-    cell.addEventListener('mousedown', function() {
-        mouseIsDown = true;
-    });
-    cell.addEventListener('mouseup', function() {
-        mouseIsDown = false;
-    });
-});
+
 
 // Function that applys the correct brush color to activeBrush
 function applyBrush (cell) {
     console.log('applying brush: ', activeBrush, 'mouse is down: ',mouseIsDown);
-    if (activeBrush === 'black' && mouseIsDown) {
-        cell.addEventListener('mouseover', changeBlack);
-    } else if (activeBrush === 'eraser' && mouseIsDown) {
-        cell.addEventListener('mouseover', changeWhite);
-    } else if (activeBrush === 'custom' && mouseIsDown) {
-        cell.addEventListener('mouseover', changeCustomColor);
+    if (activeBrush === 'black' && mouseIsDown === true) {
+        cell.addEventListener('mousemove', changeBlack);
+    } else if (activeBrush === 'eraser' && mouseIsDown === true) {
+        cell.addEventListener('mousemove', changeWhite);
+    } else if (activeBrush === 'custom' && mouseIsDown === true) {
+        cell.addEventListener('mousemove', changeCustomColor);
     }
 }
 
+
 // Function that removes all brush event listeners
 function removeBrush (cell) {
-    if (!mouseIsDown) {
-        cell.removeEventListener('mouseover', changeBlack);
-        cell.removeEventListener('mouseover', changeWhite);
-        cell.removeEventListener('mouseover', changeCustomColor);
+    if (mouseIsDown === false) {
+        cell.removeEventListener('mousemove', changeBlack);
+        cell.removeEventListener('mousemove', changeWhite);
+        cell.removeEventListener('mousemove', changeCustomColor);
     }
 }
+
+cellList.forEach(function(cell) {
+    cell.addEventListener('mousedown', function() {
+        mouseIsDown = true;
+        applyBrush(cell);
+    });
+    cell.addEventListener('mouseup', function() {
+        mouseIsDown = false;
+        removeBrush(cell);
+    });
+});
 
 /*
 // Function that applys the correct brush color to activeBrush
