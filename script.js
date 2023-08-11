@@ -91,18 +91,19 @@ cellList.forEach(function(cell) {
 
 // Function that applys the correct brush color to activeBrush
 function applyBrush (cell) {
-    if (activeBrush === 'black' && mouseIsDown === true) {
+    console.log('applying brush: ', activeBrush, 'mouse is down: ',mouseIsDown);
+    if (activeBrush === 'black' && mouseIsDown) {
         cell.addEventListener('mouseover', changeBlack);
-    } else if (activeBrush === 'eraser' === mouseIsDown === true) {
+    } else if (activeBrush === 'eraser' && mouseIsDown) {
         cell.addEventListener('mouseover', changeWhite);
-    } else if (activeBrush === 'custom' && mouseIsDown === true) {
+    } else if (activeBrush === 'custom' && mouseIsDown) {
         cell.addEventListener('mouseover', changeCustomColor);
     }
 }
 
 // Function that removes all brush event listeners
 function removeBrush (cell) {
-    if (mouseIsDown = false) {
+    if (!mouseIsDown) {
         cell.removeEventListener('mouseover', changeBlack);
         cell.removeEventListener('mouseover', changeWhite);
         cell.removeEventListener('mouseover', changeCustomColor);
