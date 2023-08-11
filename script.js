@@ -77,40 +77,33 @@ function changeCustomColor(event) {
     event.target.style.backgroundColor = customColor.value;
 }
 
-// Variable to keep track if the mouse button is being held down or not
-let mouseIsDown = false;
-
-
 
 // Function that applys the correct brush color to activeBrush
 function applyBrush (cell) {
     console.log('applying brush: ', activeBrush, 'mouse is down: ',mouseIsDown);
     if (activeBrush === 'black' && mouseIsDown === true) {
-        cell.addEventListener('mousemove', changeBlack);
+        cell.addEventListener('mouseover', changeBlack);
     } else if (activeBrush === 'eraser' && mouseIsDown === true) {
-        cell.addEventListener('mousemove', changeWhite);
+        cell.addEventListener('mouseover', changeWhite);
     } else if (activeBrush === 'custom' && mouseIsDown === true) {
-        cell.addEventListener('mousemove', changeCustomColor);
+        cell.addEventListener('mouseover', changeCustomColor);
     }
 }
 
 
 // Function that removes all brush event listeners
 function removeBrush (cell) {
-    if (mouseIsDown === false) {
-        cell.removeEventListener('mousemove', changeBlack);
-        cell.removeEventListener('mousemove', changeWhite);
-        cell.removeEventListener('mousemove', changeCustomColor);
-    }
+        cell.removeEventListener('mouseover', changeBlack);
+        cell.removeEventListener('mouseover', changeWhite);
+        cell.removeEventListener('mouseover', changeCustomColor);
+    
 }
 
 cellList.forEach(function(cell) {
     cell.addEventListener('mousedown', function() {
-        mouseIsDown = true;
         applyBrush(cell);
     });
     cell.addEventListener('mouseup', function() {
-        mouseIsDown = false;
         removeBrush(cell);
     });
 });
