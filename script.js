@@ -4,16 +4,49 @@ const container = document.getElementById('container');
 let rows = document.getElementsByClassName('gridRow');
 let cells = document.querySelectorAll('cell');
 let sliderValueOutput = document.getElementById('slider-value');
+// Script for the slider that controls the grid size goes here
+let slider = document.getElementById('slider-options');
 
+
+function makeRowsAndColumns(cellNum) {
+    // Clears existing cells
+    container.innerHTML = '';
+    for (i = 0; i < cellNum; i++) {
+        let newCell = document.createElement('div');
+        newCell.className = 'cell';
+        container.appendChild(newCell);
+    }
+}
+
+function updateCellSize(size) {
+    // Can be adjusted for desired container size
+    const containerSize = 16;
+    // Calculate cell size based on container size and slider value
+    const cellSize = containerSize / size;
+    container.style.gridTemplateColumns = `repeat(${size}, ${cellSize}px)`;
+    container.style.gridTemplateRows = `repeat(${size}, ${cellSize}px)`;
+}
+
+slider.onimput = function () {
+    const newSize = parseInt(this.value);
+    // Update slider value display
+    sliderValueOutput.innerHTML = newSize;
+    makeRowsAndColumns(newSize);
+    updateCellSize(newSize);
+}
+
+// Initiate default grid
+makeRowsAndColumns(2);
+updateCellSize(2);
+
+/*
 // Makes the 16 x 16 grid
-
 function defaultGrid() {
     makeRows(16);
     makeColumns(16);
 }
 
 // Take the rows and column input and creates a grid
-
 function makeRows(rowNum) {
     // Creates rows
     for (r = 0; r < rowNum; r++) {
@@ -42,9 +75,9 @@ function updateGridSize(size) {
     makeRows(gridSize);
     makeColumns(gridSize);
 }
+*/
 
-// Script for the slider that controls the grid size goes here
-let slider = document.getElementById('slider-options');
+
 
 
 slider.oninput = function () {
