@@ -79,6 +79,9 @@ function changeCustomColor(event) {
 
 
 // Function that applys the correct brush color to activeBrush
+
+//Nested if/ if... if else statements. If the left mouse button is being held  down
+// and if activeBrush === 'black/eraser/ect.' it works.
 function applyBrush(cell) {
     cell.addEventListener('mouseover', function(event) {
         if (event.buttons === 1) {
@@ -102,6 +105,7 @@ function removeBrush (cell) {
     
 }
 
+// Update mousedown with two parameters
 cellList.forEach(function(cell) {
     cell.addEventListener('mousedown', function(event) {
         applyBrush(cell, event);
