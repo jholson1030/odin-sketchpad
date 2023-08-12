@@ -43,6 +43,10 @@ function updateGridSize(size) {
     makeColumns(gridSize);
 }
 
+// Script for the slider that controls the grid size goes here
+let slider = document.getElementById('slider-options');
+
+
 slider.oninput = function () {
     // Takes the value of the slider and converts it to and integer and
     // assigns it to the variable 'newSize'
@@ -62,15 +66,7 @@ updateGridSize(2);
 defaultGrid();
 
 
-// Script for the slider that controls the grid size goes here
-let slider = document.getElementById('slider-options');
 
-// Updates the current value of the canvas size
-slider.oninput = function() {
-
-    // Add code to this function
-    output.innerHTML = this.value;
-}
 
 
 // The event to change each individual cell black
