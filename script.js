@@ -3,7 +3,7 @@
 const container = document.getElementById('container');
 let rows = document.getElementsByClassName('gridRow');
 let cells = document.querySelectorAll('cell');
-
+let sliderValueOutput = document.getElementById('slider-value');
 
 // Makes the 16 x 16 grid
 
@@ -33,6 +33,15 @@ function makeColumns(cellNum) {
     }
 }
 
+function updateGridSize(size) {
+    // Calculates the grid size (8x8, 16x16, 32x32, 64x64)
+    const gridSize = 8 * size;
+    // Sets the container width and height
+    container.style.width = gridSize + 'em';
+    container.style.height = gridSize + 'em';
+    makeRows(gridSize);
+    makeColumns(gridSize);
+}
 
 // Declare the default grid at the end of the code
 
