@@ -43,6 +43,20 @@ function updateGridSize(size) {
     makeColumns(gridSize);
 }
 
+slider.oninput = function () {
+    // Takes the value of the slider and converts it to and integer and
+    // assigns it to the variable 'newSize'
+    const newSize = parseInt(this.value);
+    // Updates the slider value display. Might remove this later or update
+    // it to the values of 8x8, 16x16, 32x32, & 64x64
+    sliderValueOutput.innerHTML = newSize;
+    updateGridSize(newSize);
+}
+
+// Initialize the default grid
+
+updateGridSize(2);
+
 // Declare the default grid at the end of the code
 
 defaultGrid();
