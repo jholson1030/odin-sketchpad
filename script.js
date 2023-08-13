@@ -3,50 +3,17 @@
 const container = document.getElementById('container');
 let rows = document.getElementsByClassName('gridRow');
 let cells = document.querySelectorAll('cell');
-let sliderValueOutput = document.getElementById('slider-value');
-// Script for the slider that controls the grid size goes here
-let slider = document.getElementById('slider-options');
 
 
-function makeRowsAndColumns(cellNum) {
-    // Clears existing cells
-    container.innerHTML = '';
-    for (i = 0; i < cellNum; i++) {
-        let newCell = document.createElement('div');
-        newCell.className = 'cell';
-        container.appendChild(newCell);
-    }
-}
-
-function updateCellSize(size) {
-    // Can be adjusted for desired container size
-    const containerSize = 16;
-    // Calculate cell size based on container size and slider value
-    const cellSize = containerSize / size;
-    container.style.gridTemplateColumns = `repeat(${size}, ${cellSize}px)`;
-    container.style.gridTemplateRows = `repeat(${size}, ${cellSize}px)`;
-}
-
-slider.onimput = function () {
-    const newSize = parseInt(this.value);
-    // Update slider value display
-    sliderValueOutput.innerHTML = newSize;
-    makeRowsAndColumns(newSize);
-    updateCellSize(newSize);
-}
-
-// Initiate default grid
-makeRowsAndColumns(2);
-updateCellSize(2);
-
-/*
 // Makes the 16 x 16 grid
+
 function defaultGrid() {
     makeRows(16);
     makeColumns(16);
 }
 
 // Take the rows and column input and creates a grid
+
 function makeRows(rowNum) {
     // Creates rows
     for (r = 0; r < rowNum; r++) {
@@ -66,40 +33,21 @@ function makeColumns(cellNum) {
     }
 }
 
-function updateGridSize(size) {
-    // Calculates the grid size (8x8, 16x16, 32x32, 64x64)
-    const gridSize = 8 * size;
-    // Sets the container width and height
-    container.style.width = gridSize + 'em';
-    container.style.height = gridSize + 'em';
-    makeRows(gridSize);
-    makeColumns(gridSize);
-}
-*/
-
-
-
-
-slider.oninput = function () {
-    // Takes the value of the slider and converts it to and integer and
-    // assigns it to the variable 'newSize'
-    const newSize = parseInt(this.value);
-    // Updates the slider value display. Might remove this later or update
-    // it to the values of 8x8, 16x16, 32x32, & 64x64
-    sliderValueOutput.innerHTML = newSize;
-    updateGridSize(newSize);
-}
-
-// Initialize the default grid
-
-updateGridSize(2);
 
 // Declare the default grid at the end of the code
 
 defaultGrid();
 
 
+// Script for the slider that controls the grid size goes here
+let slider = document.getElementById('slider-options');
 
+// Updates the current value of the canvas size
+slider.oninput = function() {
+
+    // Add code to this function
+    output.innerHTML = this.value;
+}
 
 
 // The event to change each individual cell black
@@ -131,9 +79,6 @@ function changeCustomColor(event) {
 
 
 // Function that applys the correct brush color to activeBrush
-
-//Nested if/ if... if else statements. If the left mouse button is being held  down
-// and if activeBrush === 'black/eraser/ect.' it works.
 function applyBrush(cell) {
     cell.addEventListener('mouseover', function(event) {
         if (event.buttons === 1) {
@@ -157,7 +102,6 @@ function removeBrush (cell) {
     
 }
 
-// Update mousedown with two parameters
 cellList.forEach(function(cell) {
     cell.addEventListener('mousedown', function(event) {
         applyBrush(cell, event);
