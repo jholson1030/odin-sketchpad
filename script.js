@@ -4,6 +4,23 @@ const container = document.getElementById('container');
 let rows = document.getElementsByClassName('gridRow');
 let cells = document.querySelectorAll('cell');
 
+let slider = document.getElementById('slider-options');
+let sliderValueOutput = document.getElementById('slider-value');
+
+// Updates the curent value of the canvas size
+slider.oninput = function() {
+    sliderValueOutput.textContent = this.value;
+    clearGrid();
+    makeRows(this.value);
+    makeColumns(this.value);
+    adjustCellSize(this.value);
+} 
+
+function clearGrid() {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}
 
 // Makes the 16 x 16 grid
 
@@ -28,7 +45,7 @@ function makeColumns(cellNum) {
     for (i = 0; i < rows.length; i++) {
         for (j = 0; j < cellNum; j++) {
             let newCell = document.createElement('div');
-            rows[j].appendChild(newCell).className = 'cell';
+            rows[i].appendChild(newCell).className = 'cell';
         }
     }
 }
@@ -38,16 +55,6 @@ function makeColumns(cellNum) {
 
 defaultGrid();
 
-
-// Script for the slider that controls the grid size goes here
-let slider = document.getElementById('slider-options');
-
-// Updates the current value of the canvas size
-slider.oninput = function() {
-
-    // Add code to this function
-    output.innerHTML = this.value;
-}
 
 
 // The event to change each individual cell black
