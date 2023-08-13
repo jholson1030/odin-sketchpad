@@ -16,6 +16,14 @@ slider.oninput = function() {
     adjustCellSize(this.value);
 } 
 
+function adjustCellSize(gridSize) {
+    const cellSize = `${100 / gridSize} %`;
+    cells.forEach(cell => {
+        cell.style.width = cellSize;
+        cell.style.height = cellSize;
+    });
+}
+
 function clearGrid() {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
