@@ -2,7 +2,7 @@
 
 const container = document.getElementById('container');
 let rows = document.getElementsByClassName('gridRow');
-let cells = document.querySelectorAll('cell');
+let cells = document.querySelectorAll('.cell');
 
 let slider = document.getElementById('slider-options');
 let sliderValueOutput = document.getElementById('slider-value');
@@ -56,6 +56,8 @@ function makeColumns(cellNum) {
             rows[i].appendChild(newCell).className = 'cell';
         }
     }
+    // Updates the cells collection
+    cells = document.querySelectorAll('.cell');
 }
 
 
