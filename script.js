@@ -62,6 +62,9 @@ let customColor = document.querySelector('.color-picker');
 // Selects all the cells on the canvas 
 let cellList = document.querySelectorAll('.cell');
 
+// Event to change each cell a random color
+let rainbowButton = document.querySelector('.rainbow-btn');
+
 // This represents the specific brush that is active
 let activeBrush = null;
 
@@ -77,6 +80,13 @@ function changeCustomColor(event) {
     event.target.style.backgroundColor = customColor.value;
 }
 
+function changeRainbow(event) {
+    let red = Math.floor(Math.random() * 256);
+    let green = Math.floor(Math.random() * 256);
+    let blue = Math.floor(Math.random() * 256);
+    event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+}
+
 
 // Function that applys the correct brush color to activeBrush
 function applyBrush(cell) {
@@ -88,6 +98,8 @@ function applyBrush(cell) {
                 changeWhite(event);
             } else if (activeBrush === 'custom') {
                 changeCustomColor(event);
+            } else if (activeBrush === 'rainbow') {
+                changeRainbow(event);
             }
         }
     });
@@ -99,6 +111,7 @@ function removeBrush (cell) {
         cell.removeEventListener('mouseover', changeBlack);
         cell.removeEventListener('mouseover', changeWhite);
         cell.removeEventListener('mouseover', changeCustomColor);
+        cell.removeEventListener('mouseover', changeRainbow);
     
 }
 
@@ -128,6 +141,12 @@ eraserButton.addEventListener('click', function() {
 
 customColor.addEventListener('click', function() {
     activeBrush = 'custom';
+    cellList.forEach(removeBrush);
+    cellList.forEach(applyBrush);
+});
+
+rainbowButton.addEventListener('click', function() {
+    activeBrush = 'rainbow';
     cellList.forEach(removeBrush);
     cellList.forEach(applyBrush);
 });
