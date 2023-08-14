@@ -12,14 +12,14 @@ body {
     margin: 10% 25%;
     padding: 5%;
     display: grid;
-    /* grid-template-columns: repeat(16, 20px); */
+    grid-template-columns: repeat(16, 20px);
     justify-content: center;
 }
 
 .cell {
     border: 1px solid grey;
-    width: calc(100% / var(--grid-size));
-    height: calc(100% / var(--grid-size));
+    min-width: 20px;
+    min-height: 20px;
 }
 
 .buttons {
