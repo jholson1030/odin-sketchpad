@@ -7,27 +7,12 @@ let cells = document.querySelectorAll('.cell');
 let slider = document.getElementById('slider-options');
 let sliderValueOutput = document.getElementById('slider-value');
 
-// Updates the curent value of the canvas size
+// Updates the curent value of the canvas
 slider.oninput = function() {
     sliderValueOutput.textContent = this.value;
     clearGrid();
     makeRows(this.value);
     makeColumns(this.value);
-    adjustCellSize(this.value);
-} 
-
-function adjustCellSize(gridSize) {
-    const cellSize = `${100 / gridSize} %`;
-    cells.forEach(cell => {
-        cell.style.width = cellSize;
-        cell.style.height = cellSize;
-    });
-}
-
-function clearGrid() {
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
 }
 
 // Makes the 16 x 16 grid
@@ -40,30 +25,42 @@ function defaultGrid() {
 // Take the rows and column input and creates a grid
 
 function makeRows(rowNum) {
+    // Clear existing rows
+    container.innerHTML = '';
     // Creates rows
     for (r = 0; r < rowNum; r++) {
         let row = document.createElement('div');
         container.appendChild(row).className = 'gridRow';
     }
+    // Calculate and set cell size
+    let cellSize = `${100 / rowNum}%`;
+    cells = document.querySelectorAll('cell');
+    cells.forEach(cell => {
+        cell.style.width = cellSize;
+        cell.style.height = cellSize;
+    });
 }
 
 // Creates the columns
 
 function makeColumns(cellNum) {
+    rows = document.getElementsByClassName('gridRow');
+
     for (i = 0; i < rows.length; i++) {
+        rows[i].innerHTML = '';
+
         for (j = 0; j < cellNum; j++) {
             let newCell = document.createElement('div');
             rows[i].appendChild(newCell).className = 'cell';
         }
     }
-    // Updates the cells collection
-    cells = document.querySelectorAll('.cell');
 }
 
 
 // Declare the default grid at the end of the code
 
 defaultGrid();
+
 
 
 
