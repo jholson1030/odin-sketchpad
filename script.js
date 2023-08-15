@@ -38,7 +38,7 @@ function makeColumns(cellNum) {
 
 defaultGrid();
 
-
+/*
 // Script for the slider that controls the grid size goes here
 let slider = document.getElementById('slider-options');
 
@@ -48,7 +48,7 @@ slider.oninput = function() {
     // Add code to this function
     output.innerHTML = this.value;
 }
-
+*/
 
 // The event to change each individual cell black
 let blackButton = document.querySelector('.black-btn');
