@@ -67,25 +67,13 @@ slider.addEventListener('input', function () {
     updateCellEventListeners();
 });
 
-// Function to update cell event listeners
-function updateCellEventListeners() {
-    cellList = document.querySelectorAll('.cell');
 
-    cellList.forEach(function (cell) {
-        cell.addEventListener('mousedown', function (event) {
-            applyBrush(cell, event);
-        });
-        cell.addEventListener('mouseup', function () {
-            removeBrush(cell);
-        });
-    });
-}
 
 // Declare the default grid at the end of the code
 
 defaultGrid();
 
-updateCellEventListeners();
+
 
 // The event to change each individual cell black
 let blackButton = document.querySelector('.black-btn');
@@ -189,9 +177,21 @@ rainbowButton.addEventListener('click', function() {
 });
 
 
+// Function to update cell event listeners
+function updateCellEventListeners() {
+    cellList = document.querySelectorAll('.cell');
 
+    cellList.forEach(function (cell) {
+        cell.addEventListener('mousedown', function (event) {
+            applyBrush(cell, event);
+        });
+        cell.addEventListener('mouseup', function () {
+            removeBrush(cell);
+        });
+    });
+}
 
-
+updateCellEventListeners();
 
 // Clears the canvas to start over again
 // Sets a variable called clearCanvas and links it to the HTML button with a query selector
