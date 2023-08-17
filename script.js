@@ -41,6 +41,12 @@ function removeAllChildNodes(parent) {
     }
 }
 
+function createCell() {
+    let newCell = document.createElement('div');
+    newCell.className = 'cell';
+    return newCell;
+}
+
 slider.addEventListener('input', function () {
     let val = this.value;
     sliderValue.textContent = val;
@@ -52,9 +58,9 @@ slider.addEventListener('input', function () {
 
     // Recreate cells
     for (let c = 0; c < val * val; c++) {
-        let div = document.createElement('div');
-        div.className = 'cell';
+        let div = createCell();
         container.appendChild(div);
+        applyBrush(div);
     }
 
     // Update event listeners
@@ -72,7 +78,6 @@ function updateCellEventListeners() {
         cell.addEventListener('mouseup', function () {
             removeBrush(cell);
         });
-        applyBrush(cell);
     });
 }
 
