@@ -12,14 +12,14 @@ body {
     margin: 10% 25%;
     padding: 5%;
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
+    grid-template-columns: repeat(16, 20px);
     justify-content: center;
 }
 
 .cell {
     border: 1px solid grey;
-    min-width: 1fr;
-    min-height: 1fr;
+    min-width: 20px;
+    min-height: 20px;
 }
 
 .buttons {
@@ -28,7 +28,7 @@ body {
     margin-top: 20px;
 }
 
-/*
+
 .slider-container {
     width: 10%;
 }
@@ -57,4 +57,3 @@ body {
     background-color: #04aa6d;
     cursor: pointer;
 }
-*/
