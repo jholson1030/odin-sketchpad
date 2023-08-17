@@ -63,8 +63,7 @@ slider.addEventListener('input', function () {
         applyBrush(div);
     }
 
-    // Update event listeners
-    updateCellEventListeners();
+    
 });
 
 
@@ -177,21 +176,7 @@ rainbowButton.addEventListener('click', function() {
 });
 
 
-// Function to update cell event listeners
-function updateCellEventListeners() {
-    cellList = document.querySelectorAll('.cell');
 
-    cellList.forEach(function (cell) {
-        cell.addEventListener('mousedown', function (event) {
-            applyBrush(cell, event);
-        });
-        cell.addEventListener('mouseup', function () {
-            removeBrush(cell);
-        });
-    });
-}
-
-updateCellEventListeners();
 
 // Clears the canvas to start over again
 // Sets a variable called clearCanvas and links it to the HTML button with a query selector
