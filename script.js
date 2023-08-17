@@ -51,6 +51,8 @@ slider.addEventListener('input', function () {
     let val = this.value;
     sliderValue.textContent = val;
 
+    removeAllChildNodes(container);
+
     // Updates grid layout
     removeAllChildNodes(container);
     container.style.gridTemplateColumns = `repeat(${val}, 1fr)`;
@@ -63,7 +65,7 @@ slider.addEventListener('input', function () {
         applyBrush(div);
     }
 
-    
+    cellList = document.querySelectorAll('.cell');    
 });
 
 
@@ -110,6 +112,7 @@ function changeRainbow(event) {
     let blue = Math.floor(Math.random() * 256);
     event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
 }
+
 
 
 // Function that applys the correct brush color to activeBrush
@@ -183,7 +186,8 @@ rainbowButton.addEventListener('click', function() {
 let clearCanvas = document.querySelector('.clear-btn');
 // Adds an event listener that goes on click and runs a function that targets the whole cellList to set the background color to white
 clearCanvas.addEventListener('click', function() {
-    cellList.forEach(Element => {
-        Element.style.backgroundColor = '#ffffff';
+    console.log('clicked');
+    cellList.forEach(element => {
+        element.style.backgroundColor = '#ffffff';
     });
 });
