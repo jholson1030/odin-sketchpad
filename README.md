@@ -9,7 +9,8 @@ Project Objectives:
     - Add a clear button to clear the grid back to it's default setting [x]
     - Add a HTML color picker and implement it in Javascript [x]
     - An option to change the size of the grid while keeping the container (canvas) the same size. (Since I am shooting for a pixel art 
-    sketchpad look I will have options for 8 x 8, 16 x 16, 32 x 32, and 64 x 64)
+    sketchpad look I will have options for 8 x 8, 16 x 16, 32 x 32, and 64 x 64) [x]
+    *** UPDATE: I used a slider to set the number of cells in the grid for more customization and detail. ***
     - An optional feature to use a brush that will change the cells a random color, i.e. a rainbow brush [x]
 
 Things I want to add to make this more fleshed out pixel art sketchpad:
