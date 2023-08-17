@@ -4,12 +4,14 @@ const container = document.getElementById('container');
 let rows = document.getElementsByClassName('gridRow');
 let cells = document.querySelectorAll('cell');
 
+let slider = document.querySelector('.slider');
+let sliderValue = document.querySelector('#slider-options');
 
 // Makes the 16 x 16 grid
 
 function defaultGrid() {
     makeRows(16);
-    makeColumns(16);
+    makeColumns(16); 
 }
 
 // Take the rows and column input and creates a grid
@@ -33,22 +35,35 @@ function makeColumns(cellNum) {
     }
 }
 
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+slider.addEventListener('input', function () {
+    let val = this.value;
+    sliderValue.textContent = val;
+
+    // Updates grid layout
+    removeAllChildNodes(container);
+    container.style.gridTemplateColumns = `repeat(${val}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${val}, 1fr)`;
+
+    // Recreate cells
+    for (let c = 0; c < val * val; c++) {
+        let div = document.createElement('div');
+        div.className = 'cell';
+        container.appendChild(div);
+    }
+
+    // Update event listeners
+    updateCellEventListeners();
+});
 
 // Declare the default grid at the end of the code
 
 defaultGrid();
-
-/*
-// Script for the slider that controls the grid size goes here
-let slider = document.getElementById('slider-options');
-
-// Updates the current value of the canvas size
-slider.oninput = function() {
-
-    // Add code to this function
-    output.innerHTML = this.value;
-}
-*/
 
 // The event to change each individual cell black
 let blackButton = document.querySelector('.black-btn');
