@@ -5,7 +5,7 @@ let rows = document.getElementsByClassName('gridRow');
 let cells = document.querySelectorAll('cell');
 
 let slider = document.querySelector('.slider');
-let sliderValue = document.querySelector('#slider-options');
+let sliderValue = document.querySelector('#slider-value');
 
 // Makes the 16 x 16 grid
 
