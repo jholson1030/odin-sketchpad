@@ -17,5 +17,6 @@ Things I want to add to make this more fleshed out pixel art sketchpad:
     - An option to export an image as a downloadable PNG file
     - Change the event listener for the brushes to react on mouse click (and drag) rather then just mouseover for more detailed work [x]
     - An option to change the canvas color
+    *** UPDATE: Instead of changing the canvas color I will add a fill option that will fill an area with the desired color. ***
     - Day/night mode
     - Style the webpage to have an 'old school MS Paint' feel to it.
