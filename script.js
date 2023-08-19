@@ -191,3 +191,14 @@ clearCanvas.addEventListener('click', function() {
         element.style.backgroundColor = '#ffffff';
     });
 });
+
+// PARTY TIME!!! //
+
+let danceBreakButton = document.querySelector('.dance-break');
+let dancingCats = document.querySelectorAll('.cats');
+
+function danceBreak() {
+    dancingCats.style.display = 'flex';
+}
+
+danceBreakButton.addEventListener('click', danceBreak());
