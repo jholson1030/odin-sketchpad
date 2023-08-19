@@ -194,11 +194,9 @@ clearCanvas.addEventListener('click', function() {
 
 // PARTY TIME!!! //
 
-let danceBreakButton = document.querySelector('.dance-break');
-let dancingCats = document.querySelectorAll('.cats');
+let danceBreakButton = document.getElementsByClassName('dance-break');
+let dancingCats = document.getElementsByClassName('cats');
 
-function danceBreak() {
+danceBreakButton.addEventListener('click', function() {
     dancingCats.style.display = 'flex';
-}
-
-danceBreakButton.addEventListener('click', danceBreak());
+});
