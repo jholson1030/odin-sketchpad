@@ -18,7 +18,7 @@ body {
 }
 
 .cell {
-    border: solid 1px #f4f4f4;
+    border: none;
     min-width: 1fr;
     min-height: 1fr;
 }
