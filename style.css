@@ -9,7 +9,7 @@ body {
 
 #container {
     border: 5px solid black;
-    margin: 10% auto;
+    margin: 5% auto;
     width: 25%;
     height: auto;
     aspect-ratio: 1 /1;
@@ -76,8 +76,11 @@ body {
     border-radius: 10px;
 }
 
+.party-cats{
+    display: flex;
+    justify-content: space-evenly;
+}
 .cats {
     height: 10%;
     width: 10%;
-    display: none;
 }
