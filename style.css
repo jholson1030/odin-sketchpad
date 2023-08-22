@@ -9,11 +9,13 @@ body {
 .night-mode {
     background-color: #333333;
     color: #ffffff;
+    #container {
+        background-color: #ffffff;
+    }
 }
 
 .header {
     text-align: center;
-    border-bottom: 3px solid black;
 }
 
 .body {
