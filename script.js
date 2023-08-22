@@ -219,3 +219,12 @@ function toggleParty() {
 }
 
 document.querySelector('.dance-break').addEventListener('click', toggleParty);
+
+// Day/Night mode //
+
+const body = document.querySelector('body');
+const modeToggle = document.querySelector('.mode-toggle');
+
+modeToggle.addEventListener('click', function() {
+    body.classList.toggle('night-mode');
+});
