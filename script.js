@@ -194,9 +194,28 @@ clearCanvas.addEventListener('click', function() {
 
 // PARTY TIME!!! //
 
-let danceBreakButton = document.getElementsByClassName('dance-break');
-let dancingCats = document.getElementsByClassName('cats');
+let partyState = false;
 
-danceBreakButton.addEventListener('click', function() {
-    dancingCats.style.display = 'flex';
-});
+function partyOn() {
+    document.querySelector('.party-cats').style.display = 'flex';
+}
+
+document.querySelector('.party-cats').style.display = 'none';
+
+function partyOff() {
+    document.querySelector('.party-cats').style.display = 'none';
+}
+
+function toggleParty() {
+    if (partyState) {
+        partyOff();
+        document.querySelector('.dance-break').innerHTML = "Let's party!";
+        
+    } else {
+        partyOn();
+        document.querySelector('.dance-break').innerHTML = 'CATS!!!';
+    }
+    partyState = !partyState;
+}
+
+document.querySelector('.dance-break').addEventListener('click', toggleParty);
