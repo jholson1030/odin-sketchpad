@@ -1,6 +1,14 @@
 body {
     margin: 0 auto;
     font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/*Night Mode*/
+.night-mode {
+    background-color: #333333;
+    color: #ffffff;
 }
 
 .header {
