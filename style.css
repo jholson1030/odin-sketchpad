@@ -18,6 +18,12 @@ body {
     text-align: center;
 }
 
+.mode-toggle {
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+}
+
 .body {
     display: flex;
     margin-top: 5%;
