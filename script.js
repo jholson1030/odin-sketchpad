@@ -49,7 +49,7 @@ function createCell() {
 
 slider.addEventListener('input', function () {
     let val = this.value;
-    sliderValue.textContent = val;
+    sliderValue.textContent = `${val} x ${val}`;
 
     removeAllChildNodes(container);
 
