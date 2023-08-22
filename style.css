@@ -7,6 +7,10 @@ body {
     border-bottom: 3px solid black;
 }
 
+.body {
+    display: flex;
+}
+
 #container {
     border: 5px solid black;
     margin: 5% auto;
@@ -25,9 +29,10 @@ body {
 
 .buttons {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 20px;
+    margin: 20px;
 }
 
 
