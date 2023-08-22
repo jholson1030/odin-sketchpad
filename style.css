@@ -36,6 +36,13 @@ body {
     gap: 4px;
 }
 
+button {
+    height: 50px;
+    width: 100px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
 
 .slider-container {
     width: fit-content;
