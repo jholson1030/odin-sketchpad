@@ -166,6 +166,8 @@ clearCanvas.addEventListener('click', function() {
     });
 });
 
+// Targets the cell's border and toggles it on and off 
+
 let bordersOn = false;
 let gridButton = document.querySelector('.grid-btn');
 
