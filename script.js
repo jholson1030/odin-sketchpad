@@ -3,16 +3,35 @@
 const container = document.getElementById('container');
 let rows = document.getElementsByClassName('gridRow');
 let cells = document.querySelectorAll('cell');
+let cellList = [];
 
 let slider = document.querySelector('.slider');
 let sliderValue = document.querySelector('#slider-value');
 
 // Makes the 16 x 16 grid
 
-function defaultGrid() {
-    makeRows(16);
-    makeColumns(16); 
+function defaultGrid(rowNum, cellNum) {
+    removeAllChildNodes(container);
+    makeRows(rowNum);
+    makeColumns(cellNum); 
+
+    slider.value = 16;
+    sliderValue.textContent = `16 x 16`;
+
+    container.style.gridTemplateColumns = `repeat(16, 1fr)`;
+    container.style.gridTemplateRows = `repeat(16, 1fr)`;
+
+    for (let c = 0; c < 256; c++) {
+        let div = createCell();
+        container.appendChild(div);
+        applyBrush(div);
+    }
+    cellList = [];
+    cellList = document.querySelectorAll('.cell');
 }
+
+defaultGrid(16, 16);
+
 
 // Take the rows and column input and creates a grid
 
@@ -47,8 +66,12 @@ function createCell() {
     return newCell;
 }
 
-slider.addEventListener('input', function () {
-    let val = this.value;
+
+
+
+
+slider.addEventListener('input', function sliderEvent () {
+    let val = slider.value;
     sliderValue.textContent = `${val} x ${val}`;
 
     removeAllChildNodes(container);
@@ -65,14 +88,10 @@ slider.addEventListener('input', function () {
         applyBrush(div);
     }
 
-    cellList = document.querySelectorAll('.cell');    
+    cellList = document.querySelectorAll('.cell');  
 });
 
 
-
-// Declare the default grid at the end of the code
-
-defaultGrid();
 
 
 
@@ -85,8 +104,7 @@ let eraserButton = document.querySelector('.eraser-btn');
 // The event to target the color picker
 let customColor = document.querySelector('.color-picker');
 
-// Selects all the cells on the canvas 
-let cellList = document.querySelectorAll('.cell');
+
 
 // Event to change each cell a random color
 let rainbowButton = document.querySelector('.rainbow-btn');
