@@ -3,19 +3,20 @@
 const container = document.getElementById('container');
 let rows = document.getElementsByClassName('gridRow');
 let cells = document.querySelectorAll('cell');
+let cellList;
 
 let slider = document.querySelector('.slider');
 let sliderValue = document.querySelector('#slider-value');
 
 // Makes the 16 x 16 grid
-
+/*
 function defaultGrid() {
     makeRows(16);
     makeColumns(16); 
 }
-
+*/
 // Take the rows and column input and creates a grid
-
+/*
 function makeRows(rowNum) {
     // Creates rows
     for (r = 0; r < rowNum; r++) {
@@ -30,9 +31,29 @@ function makeColumns(cellNum) {
     for (i = 0; i < rows.length; i++) {
         for (j = 0; j < cellNum; j++) {
             let newCell = document.createElement('div');
-            rows[j].appendChild(newCell).className = 'cell';
+            rows[i].appendChild(newCell).className = 'cell';
         }
     }
+}
+*/
+
+function createCell() {
+    let newCell = document.createElement('div');
+    newCell.className = 'cell';
+    return newCell;
+}
+
+function makeGrid(size) {
+    removeAllChildNodes(container);
+    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+    for (let c = 0; c < size * size; c++) {
+        let div = createCell();
+        container.appendChild(div);
+        applyBrush(div);
+    }
+    cellList = document.querySelectorAll('.cell');
 }
 
 function removeAllChildNodes(parent) {
@@ -41,12 +62,20 @@ function removeAllChildNodes(parent) {
     }
 }
 
-function createCell() {
-    let newCell = document.createElement('div');
-    newCell.className = 'cell';
-    return newCell;
+
+
+slider.addEventListener('input', function () {
+    let val = this.value;
+    sliderValue.textContent = `${val} x ${val}`;
+
+    makeGrid(val);
+});
+
+function defaultGrid() {
+    makeGrid(16);
 }
 
+/*
 slider.addEventListener('input', function () {
     let val = this.value;
     sliderValue.textContent = `${val} x ${val}`;
@@ -67,12 +96,14 @@ slider.addEventListener('input', function () {
 
     cellList = document.querySelectorAll('.cell');    
 });
+*/
 
 
 
 // Declare the default grid at the end of the code
 
 defaultGrid();
+
 
 
 
@@ -86,7 +117,7 @@ let eraserButton = document.querySelector('.eraser-btn');
 let customColor = document.querySelector('.color-picker');
 
 // Selects all the cells on the canvas 
-let cellList = document.querySelectorAll('.cell');
+// let cellList = document.querySelectorAll('.cell');
 
 // Event to change each cell a random color
 let rainbowButton = document.querySelector('.rainbow-btn');
@@ -228,3 +259,4 @@ const modeToggle = document.querySelector('.mode-toggle');
 modeToggle.addEventListener('click', function() {
     body.classList.toggle('night-mode');
 });
+
