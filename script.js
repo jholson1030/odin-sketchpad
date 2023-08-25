@@ -4,33 +4,13 @@ const container = document.getElementById('container');
 let rows = document.getElementsByClassName('gridRow');
 let cells = document.querySelectorAll('cell');
 let cellList = [];
+let activeBrush = null; 
 
 let slider = document.querySelector('.slider');
 let sliderValue = document.querySelector('#slider-value');
 
-// Makes the 16 x 16 grid
 
-function defaultGrid(rowNum, cellNum) {
-    removeAllChildNodes(container);
-    makeRows(rowNum);
-    makeColumns(cellNum); 
 
-    slider.value = 16;
-    sliderValue.textContent = `16 x 16`;
-
-    container.style.gridTemplateColumns = `repeat(16, 1fr)`;
-    container.style.gridTemplateRows = `repeat(16, 1fr)`;
-
-    for (let c = 0; c < 256; c++) {
-        let div = createCell();
-        container.appendChild(div);
-        applyBrush(div);
-    }
-    cellList = [];
-    cellList = document.querySelectorAll('.cell');
-}
-
-defaultGrid(16, 16);
 
 
 // Take the rows and column input and creates a grid
@@ -104,13 +84,15 @@ let eraserButton = document.querySelector('.eraser-btn');
 // The event to target the color picker
 let customColor = document.querySelector('.color-picker');
 
+// Event to toggle the grid border on or off
+// let borderButton = document.querySelector('.grid-btn');
+
 
 
 // Event to change each cell a random color
 let rainbowButton = document.querySelector('.rainbow-btn');
 
-// This represents the specific brush that is active
-let activeBrush = null;
+
 
 function changeBlack(event) {
     event.target.style.backgroundColor = '#000000';
@@ -130,8 +112,11 @@ function changeRainbow(event) {
     let blue = Math.floor(Math.random() * 256);
     event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
 }
-
-
+/*
+function toggleGridBorder() {
+    cells.style.border = 'none';
+}
+*/
 
 // Function that applys the correct brush color to activeBrush
 function applyBrush(cell) {
@@ -196,7 +181,37 @@ rainbowButton.addEventListener('click', function() {
     cellList.forEach(applyBrush);
 });
 
+/*
+borderButton.addEventListener('click', function() {
+    toggleGridBorder();
+})
+*/
 
+// Makes the 16 x 16 grid
+
+function defaultGrid(rowNum, cellNum) {
+    removeAllChildNodes(container);
+    makeRows(rowNum);
+    makeColumns(cellNum); 
+
+    slider.value = 16;
+    sliderValue.textContent = `16 x 16`;
+
+    
+    container.style.gridTemplateColumns = `repeat(16, 1fr)`;
+    container.style.gridTemplateRows = `repeat(16, 1fr)`;
+
+    for (let c = 0; c < 256; c++) {
+        let div = createCell();
+        container.appendChild(div);
+        
+    }
+    cellList = [];
+    cellList = document.querySelectorAll('.cell');
+}
+
+
+defaultGrid(16, 16);
 
 
 // Clears the canvas to start over again
