@@ -40,7 +40,7 @@ body {
 }
 
 .cell {
-    border: none;
+    border: 1px solid black;
     min-width: 1fr;
     min-height: 1fr;
 }
