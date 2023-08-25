@@ -156,7 +156,6 @@ rainbowButton.addEventListener('click', function() {
 
 
 
-
 // Clears the canvas to start over again
 // Sets a variable called clearCanvas and links it to the HTML button with a query selector
 let clearCanvas = document.querySelector('.clear-btn');
@@ -167,6 +166,19 @@ clearCanvas.addEventListener('click', function() {
         element.style.backgroundColor = '#ffffff';
     });
 });
+
+let bordersOn = false;
+let gridButton = document.querySelector('.grid-btn');
+
+function toggleGridBorder() {
+    bordersOn = !bordersOn;
+    cellList.forEach(cell => {
+        cell.style.border = bordersOn ? '1px solid black' : 'none';
+    });
+}
+
+gridButton.addEventListener('click', toggleGridBorder);
+
 
 // PARTY TIME!!! //
 
