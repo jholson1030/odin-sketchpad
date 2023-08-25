@@ -161,7 +161,6 @@ rainbowButton.addEventListener('click', function() {
 let clearCanvas = document.querySelector('.clear-btn');
 // Adds an event listener that goes on click and runs a function that targets the whole cellList to set the background color to white
 clearCanvas.addEventListener('click', function() {
-    console.log('clicked');
     cellList.forEach(element => {
         element.style.backgroundColor = '#ffffff';
     });
