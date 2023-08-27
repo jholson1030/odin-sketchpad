@@ -1,6 +1,5 @@
 // Declaring variables for the container, rows and the individual cells
 
-const { backgroundClip } = require("html2canvas/dist/types/css/property-descriptors/background-clip");
 
 const container = document.getElementById('container');
 let rows = document.getElementsByClassName('gridRow');
@@ -70,7 +69,7 @@ let customColor = document.querySelector('.color-picker');
 let rainbowButton = document.querySelector('.rainbow-btn');
 
 // To change the canvas color
-let customCanvasColor = document.querySelector('canvas-color');
+let customCanvasColor = document.querySelector('.canvas-color');
 
 // This represents the specific brush that is active
 let activeBrush = null;
