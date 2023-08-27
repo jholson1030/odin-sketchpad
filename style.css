@@ -5,7 +5,7 @@
 
 body {
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: #dee4e7;
     color: #333333;
     font-family: 'ArcadeClassic', sans-serif;
 }
@@ -30,7 +30,7 @@ h1 {
 }
 
 .button {
-    background-color: #ffffff;
+    background-color: #90a4ae;
     font-size: 16px;
     height: 50px;
     width: 125px;
@@ -66,6 +66,7 @@ h1 {
     aspect-ratio: 1 /1;
     display: grid;
     justify-content: center;
+    background-color: #ffffff;
 }
 
 .cell {
