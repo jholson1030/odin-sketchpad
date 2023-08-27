@@ -29,6 +29,11 @@ body {
     margin-top: 5%;
 }
 
+#canvas-color-label {
+    width: 200px;
+    height: fit-content;
+}
+
 #container {
     border: 5px solid black;
     margin: auto;
