@@ -142,6 +142,11 @@ h1 {
     border-radius: 10px;
 }
 
+.dance-cats {
+    display: flex;
+    flex-direction: row;
+}
+
 .party-cats{
     display: flex;
     justify-content: space-evenly;
