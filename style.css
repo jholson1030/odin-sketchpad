@@ -12,6 +12,7 @@ body {
 
 h1 {
     font-size: 42px;
+    margin-bottom: 0%;
 }
 
 /*Night Mode*/
@@ -49,10 +50,10 @@ h1 {
 
 .body {
     display: flex;
-    margin-top: 5%;
+    
 }
 
-#canvas-color-label {
+#canvas-color-label, #brush-color-label {
     width: 200px;
     height: fit-content;
 }
@@ -154,4 +155,8 @@ h1 {
 .cats {
     height: 10%;
     width: 10%;
+}
+
+label {
+    width: 200px;
 }
