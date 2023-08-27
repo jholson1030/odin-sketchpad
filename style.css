@@ -1,9 +1,16 @@
+@font-face {
+    font-family: 'ArcadeClassic';
+    src: url(./arcadeclassic.regular.ttf);
+}
+
 body {
     margin: 0 auto;
-    font-family: 'Poppins', sans-serif;
     background-color: #ffffff;
     color: #333333;
+    font-family: 'ArcadeClassic', sans-serif;
 }
+
+
 
 /*Night Mode*/
 .night-mode {
