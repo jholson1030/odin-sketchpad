@@ -10,7 +10,9 @@ body {
     font-family: 'ArcadeClassic', sans-serif;
 }
 
-
+h1 {
+    font-size: 42px;
+}
 
 /*Night Mode*/
 .night-mode {
