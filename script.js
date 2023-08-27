@@ -205,7 +205,7 @@ function partyOff() {
 function toggleParty() {
     if (partyState) {
         partyOff();
-        document.querySelector('.dance-break').innerHTML = "Let's party!";
+        document.querySelector('.dance-break').innerHTML = "Make it a party!!!";
         
     } else {
         partyOn();
