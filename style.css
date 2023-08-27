@@ -21,6 +21,20 @@ h1 {
     #container {
         background-color: #ffffff;
     }
+    .button {
+        background-color: black;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+    }
+}
+
+.button {
+    background-color: #ffffff;
+    font-size: 16px;
+    height: 50px;
+    width: 125px;
+    border: 2px solid black;
+    border-radius: 5px;
 }
 
 .header {
@@ -80,14 +94,6 @@ h1 {
 .color-picker::-webkit-color-swatch {
     border: none;
     border-radius: 50%;
-}
-
-button {
-    font-size: 16px;
-    height: 50px;
-    width: 125px;
-    border: 2px solid black;
-    border-radius: 5px;
 }
 
 
