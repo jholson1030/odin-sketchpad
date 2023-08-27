@@ -1,5 +1,7 @@
 // Declaring variables for the container, rows and the individual cells
 
+const { backgroundClip } = require("html2canvas/dist/types/css/property-descriptors/background-clip");
+
 const container = document.getElementById('container');
 let rows = document.getElementsByClassName('gridRow');
 let cells = document.querySelectorAll('cell');
@@ -67,6 +69,9 @@ let customColor = document.querySelector('.color-picker');
 // Event to change each cell a random color
 let rainbowButton = document.querySelector('.rainbow-btn');
 
+// To change the canvas color
+let customCanvasColor = document.querySelector('canvas-color');
+
 // This represents the specific brush that is active
 let activeBrush = null;
 
@@ -89,6 +94,9 @@ function changeRainbow(event) {
     event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
 }
 
+function changeCanvasColor() {
+    container.style.backgroundColor = customCanvasColor.value;
+}
 
 
 // Function that applys the correct brush color to activeBrush
@@ -154,7 +162,7 @@ rainbowButton.addEventListener('click', function() {
     cellList.forEach(applyBrush);
 });
 
-
+customCanvasColor.addEventListener('input', changeCanvasColor);
 
 // Clears the canvas to start over again
 // Sets a variable called clearCanvas and links it to the HTML button with a query selector
