@@ -4,6 +4,7 @@
 }
 
 body {
+    height: 100%;
     margin: 0 auto;
     background-color: #dee4e7;
     color: #333333;
@@ -174,7 +175,7 @@ label {
     display: flex;
     justify-content: center;
     font-size: 18px;
-    position: absolute;
+    /*position: absolute;*/
     bottom: 0;
     width: 100%;
     height: 2.5rem;
