@@ -31,7 +31,13 @@ h1 {
     .slider {
         background-color: #ffffff;
     }
-}
+    .github-link {
+        color: #ffffff;
+    }
+    .github-link:hover {
+        color: firebrick;
+    }
+}    
 
 .button {
     font-family: 'ArcadeClassic', sans-serif;
@@ -192,5 +198,5 @@ label {
 
 .github-link:hover {
     transform: scale(1.2);
-    color: firebrick;
+    color: #20019b;
 }
