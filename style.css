@@ -169,3 +169,16 @@ h1 {
 label {
     width: 200px;
 }
+
+.footer {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    margin: 0;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
