@@ -51,6 +51,7 @@ h1 {
 
 .header {
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .mode-toggle {
@@ -78,6 +79,7 @@ h1 {
     display: grid;
     justify-content: center;
     background-color: #ffffff;
+    margin-bottom: 30px;
 }
 
 .cell {
