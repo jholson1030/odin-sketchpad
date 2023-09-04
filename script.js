@@ -63,7 +63,7 @@ let blackButton = document.querySelector('.black-btn');
 let eraserButton = document.querySelector('.eraser-btn');
 
 // The event to target the color picker
-let customColor = document.querySelector('.color-picker');
+let customColor = document.querySelector('#custom-color');
 
 // Event to change each cell a random color
 let rainbowButton = document.querySelector('.rainbow-btn');
@@ -149,7 +149,7 @@ eraserButton.addEventListener('click', function() {
     cellList.forEach(applyBrush);
 });
 
-customColor.addEventListener('click', function() {
+customColor.addEventListener('input', function() {
     activeBrush = 'custom';
     cellList.forEach(removeBrush);
     cellList.forEach(applyBrush);
