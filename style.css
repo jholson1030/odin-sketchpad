@@ -21,6 +21,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     overflow: auto;
+    font-size: 24px;
 }
 
 h1 {
@@ -80,7 +81,7 @@ h1 {
 }
 
 #canvas-color-label, #brush-color-label {
-    width: 200px;
+    width: 250px;
     height: fit-content;
 }
 
@@ -197,12 +198,12 @@ label {
 .footer {
     display: flex;
     justify-content: center;
-    font-size: 18px;
+    font-size: 24px;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2.5rem;
+    height: 3rem;
     margin: 0;
     background-color: #333333;
     color: #dee4e7;
