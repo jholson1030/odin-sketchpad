@@ -5,11 +5,13 @@
 
 body {
     height: 100%;
+    width: auto;
     margin: 0 auto;
     background-color: #dee4e7;
     color: #333333;
     font-family: 'ArcadeClassic', sans-serif;
     background-image: url(./pixel-art-countryside-house-landscape-with-sunset-and-clouds-background-8bit-game-background-vector.jpg);
+    background-size: 100%;
 }
 
 h1 {
