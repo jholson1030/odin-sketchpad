@@ -28,7 +28,8 @@ h1 {
     margin-bottom: 10px;
 }
 
-/*Night Mode*/
+/*
+    --NIGHT MODE--
 .night-mode {
     background-color: #333333;
     color: #ffffff;
@@ -49,15 +50,16 @@ h1 {
     .github-link:hover {
         color: firebrick;
     }
-}    
+}  */  
 
 .button {
     font-family: 'ArcadeClassic', sans-serif;
-    background-color: #90a4ae;
+    background-color: #333333;
+    color: white;
     font-size: 16px;
     height: 50px;
     width: 125px;
-    border: 2px solid black;
+    border: 2px solid white;
     border-radius: 5px;
 }
 
@@ -202,17 +204,18 @@ label {
     height: 2.5rem;
     margin: 0;
     background-color: #333333;
+    color: #dee4e7;
     padding-bottom: 10px;
     z-index: 1000;
 }
 
 .github-link {
-    color: black;
+    color: #dee4e7;
     font-size: 22px;
     transition: all .2s ease-in-out;
 }
 
 .github-link:hover {
     transform: scale(1.2);
-    color: #20019b;
+    color: firebrick;
 }
