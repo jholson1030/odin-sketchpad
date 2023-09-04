@@ -20,3 +20,4 @@ Things I want to add to make this more fleshed out pixel art sketchpad:
     *** UPDATE: Instead of changing the canvas color I will add a fill option that will fill an area with the desired color. ***
     - Day/night mode [x]
     - Style the webpage to have an 'old school MS Paint' feel to it.
+    *** UPDATE: Instead of the old school MS Paint look I decided to have a pixel art landscape background. ***
