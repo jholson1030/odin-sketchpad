@@ -195,13 +195,15 @@ label {
     display: flex;
     justify-content: center;
     font-size: 18px;
-    /*position: absolute;*/
+    position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
     height: 2.5rem;
     margin: 0;
-    margin-bottom: 5px;
-    padding-bottom: 5px;
+    background-color: #333333;
+    padding-bottom: 10px;
+    z-index: 1000;
 }
 
 .github-link {
