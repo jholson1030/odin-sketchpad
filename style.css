@@ -119,6 +119,8 @@ h1 {
     border-radius: 50%;
     appearance: none;
     background-color: transparent;
+    min-width: 50px;
+    min-height: 50px;
 }
 
 .color-picker::-webkit-color-swatch {
