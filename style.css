@@ -221,3 +221,9 @@ label {
     transform: scale(1.2);
     color: firebrick;
 }
+
+#options {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
