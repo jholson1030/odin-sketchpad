@@ -77,7 +77,7 @@ h1 {
 
 .body {
     display: flex;
-    
+    flex: 1;
 }
 
 #canvas-color-label, #brush-color-label {
