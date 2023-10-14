@@ -224,6 +224,3 @@ const modeToggle = document.querySelector('.mode-toggle');
 modeToggle.addEventListener('click', function() {
     body.classList.toggle('night-mode');
 });
-
-
-// Adds a save button
