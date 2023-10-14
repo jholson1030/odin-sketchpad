@@ -233,3 +233,12 @@ function saveDrawing() {
     });
     localStorage.setItem('savedDrawing', JSON.stringify(colors));
 }
+
+function loadDrawing() {
+    let savedColors = JSON.parse(localStorage.getItem('savedDrawing'));
+    if (savedColors && savedColors.length === cellList.length) {
+        cellList.forEach(function(cell, index) {
+            cell.style.backgroundColor = savedColors[index];
+        });
+    }
+}
