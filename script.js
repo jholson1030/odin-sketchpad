@@ -224,3 +224,12 @@ const modeToggle = document.querySelector('.mode-toggle');
 modeToggle.addEventListener('click', function() {
     body.classList.toggle('night-mode');
 });
+
+
+function saveDrawing() {
+    let colors = [];
+    cellList.forEach(function(cell) {
+        colors.push(cell.style.backgroundColor);
+    });
+    localStorage.setItem('savedDrawing', JSON.stringify(colors));
+}
