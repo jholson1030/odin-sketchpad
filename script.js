@@ -52,7 +52,7 @@ function defaultGrid() {
 // Declare the default grid at the end of the code
 
 defaultGrid();
-
+loadDrawing();
 
 
 
@@ -76,14 +76,17 @@ let activeBrush = null;
 
 function changeBlack(event) {
     event.target.style.backgroundColor = '#000000';
+    saveDrawing();
 }
 
 function changeWhite(event) {
     event.target.style.backgroundColor = '#ffffff';
+    saveDrawing();
 }
 
 function changeCustomColor(event) {
     event.target.style.backgroundColor = customColor.value;
+    saveDrawing();
 }
 
 function changeRainbow(event) {
@@ -91,10 +94,12 @@ function changeRainbow(event) {
     let green = Math.floor(Math.random() * 256);
     let blue = Math.floor(Math.random() * 256);
     event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    saveDrawing();
 }
 
 function changeCanvasColor() {
     container.style.backgroundColor = customCanvasColor.value;
+    saveDrawing();
 }
 
 
@@ -171,6 +176,7 @@ clearCanvas.addEventListener('click', function() {
     cellList.forEach(element => {
         element.style.backgroundColor = '#ffffff';
     });
+    saveDrawing();
 });
 
 // Targets the cell's border and toggles it on and off 
